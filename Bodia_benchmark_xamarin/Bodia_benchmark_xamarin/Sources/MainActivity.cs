@@ -1,10 +1,9 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 
-namespace Bodia_benchmark_xamarin
+namespace Bodia_benchmark_xamarin.Sources
 {
-    [Activity(Label = "test", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "MainActivityName", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -16,4 +15,3 @@ namespace Bodia_benchmark_xamarin
         }
     }
 }
-

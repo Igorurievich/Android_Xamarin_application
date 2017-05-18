@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">Xamarin_perfomance_tests</string>
+  <string name="Hello">Hello World, Click Me!</string>
+  <string name="ApplicationName">Xamarin_perfomance_tests</string>
+  <string name="app_name">Bodia benchmark</string>
+  <string name="test_name_ui_loading">Dynamiczne ładowanie ListView</string>
+  <string name="test_name_database_operations">Operacji z bazą danych</string>
+  <string name="test_name_start_big_while">Wywołanie pętli</string>
+  <string name="test_name_convert_video_clip">Archiwizacja plików</string>
+  <string name="label_choose_test">Wybierz rodzaj testów:</string>
+  <string name="label_button_run_test">Uruchomić test</string>
+  <string name="label_button_run_while">Start</string>
+  <string name="label_button_run_comress_test">Start testu</string>
+  <string name="while_count_message_input">Wpisz wielkość pętli:</string>
+  <string name="items_count_message_input">Wpisz iłość elementów:</string>
+  <string name="records_count_message_input">Wpisz iłość rekordów:</string>
+  <string name="start_new_tests_series_with_while_btn_label">Uruchomić ponownie</string>
+  <string name="first_while_test_result_label_text">Pierwszy test:</string>
+  <string name="second_while_test_result_label_text">Drugi test:</string>
+  <string name="third_while_test_result_label_text">Trzeci test:</string>
+  <string name="average_while_test_result_label_text">Średnia:</string>
+  <string name="inserting_records_dbtest_time_label_text">Czas wstawiania recordów: </string>
+  <string name="updating_records_dbtest_time_label_text">Czas aktualizacji rekordów: </string>
+  <string name="deleting_records_dbtest_time_label_text">Czas usuniencia rekordów: </string>
+  <string name="start_compressing_files_btn">Zacząć archiwizacja</string>
+  <string name="start_uncompressing_files_btn">Zacząć rozpakowanie</string>
+  <string name="menu_item_prepare_data_to_zip_tests">Przygotować pliki do testów</string>
+  <string name="menu_item_clear_all_generated_files_after_test">Usunąć wygenerowane pliki</string>
+  <string name="menu_item_clear_all_files_after_test">Usunąć wszystkie pliki i wyjść</string>
+  <string name="message_inser_valid_count">Wpisz odpowiednią liczbę</string>
 </resources>
