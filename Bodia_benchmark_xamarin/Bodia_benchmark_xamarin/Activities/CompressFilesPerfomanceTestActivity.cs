@@ -3,8 +3,8 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Android.Content.Res;
 using System.IO;
+using Android.Content.Res;
 
 namespace Bodia_benchmark_xamarin.Sources
 {
@@ -37,43 +37,27 @@ namespace Bodia_benchmark_xamarin.Sources
 
         private void CopyFileOrDir(string v)
         {
-            string content;
-            AssetManager assets = Assets;
-            using (StreamReader sr = new StreamReader(assets.Open("read_asset.txt")))
+            using (var assets = Assets.Open("FilesForCompress/file0"))
+            using (var dest = File.Create(Android.App.Application.Context.FilesDir.AbsolutePath, 65535, FileOptions.None))
+                assets.CopyTo(dest);
+        }
+        public static void CopyStream(Stream input, Stream output)
+        {
+            byte[] buffer = new byte[32768];
+            int read;
+            while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
             {
-                content = sr.ReadToEnd();
-            }
-
-
-            try
-            {
-                assets = Assets.List();
-
-                if (assets.length == 0)
-                {
-                    CopyFile(path);
-                }
-                else
-                {
-                    String fullPath = getFilesDir() + File.separator + path;
-                    File dir = new File(fullPath);
-                    if (!dir.exists())
-                        dir.mkdir();
-                    for (int i = 0; i < assets.length; ++i)
-                    {
-                        СopyFileOrDir(path + "/" + assets[i]);
-                    }
-                }
-            }
-            catch (IOException ex)
-            {
-                Log.e("tag", "I/O Exception", ex);
+                output.Write(buffer, 0, read);
             }
         }
+
+
 
         private void CopyFile(object path)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
