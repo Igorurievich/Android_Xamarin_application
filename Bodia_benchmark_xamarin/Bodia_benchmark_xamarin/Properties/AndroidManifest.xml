@@ -4,5 +4,5 @@
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.READ_OWNER_DATA" />
-  <application android:label="ApplicationName" />
+  <application android:label="ApplicationBodia" />
 </manifest>
