@@ -33,6 +33,23 @@ namespace Bodia_benchmark_xamarin.Sources
             btnRunCompressTest.Click += BtnRunCompressTest_Click;
 
             CopyFilesForCompressFromAssets();
+
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
+            ActionBar.Title = Resources.GetString(Resource.String.test_name_compress_files);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            Directory.Delete(Globals.ApplicationFilesFolder, true);
+            Finish();
+            return base.OnOptionsItemSelected(item);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.compress_activity_menu, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void BtnRunCompressTest_Click(object sender, EventArgs e)
