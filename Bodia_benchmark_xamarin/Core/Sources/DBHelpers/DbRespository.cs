@@ -16,15 +16,21 @@ namespace Bodia_benchmark_xamarin.Sources.DBHelpers
             var sqLiteConnection = new SQLiteConnection(_dbPath);
         }
 
-        public bool CreateTable()
+        public void CreateTable()
         {
             var db = new SQLiteConnection(_dbPath);
-            //db.DeleteAll<UserData>();
+            db.DeleteAll<UserData>();
+            db.DropTable<UserData>();
             db.CreateTable<UserData>();
-            return true;
         }
 
-        public bool InsertRecord(string name, string surname, DateTime birthdate)
+        public void DeleteAll()
+        {
+            var db = new SQLiteConnection(_dbPath);
+            db.DeleteAll<UserData>();
+        }
+
+        public void InsertRecord(string name, string surname, DateTime birthdate)
         {
             var db = new SQLiteConnection(_dbPath);
             UserData item = new UserData()
@@ -34,18 +40,23 @@ namespace Bodia_benchmark_xamarin.Sources.DBHelpers
                 BirthDate = birthdate
             };
             db.Insert(item);
-            return true;
+        }
+
+        public void InsertRecord(UserData userDataObj)
+        {
+            var db = new SQLiteConnection(_dbPath);
+            db.Insert(userDataObj);
         }
 
         public List<UserData> GetAllRecords()
         {
             var db = new SQLiteConnection(_dbPath);
         
-            List<UserData> item = new List<UserData>(db.Table<UserData>());
-            return item;
+            List<UserData> items = new List<UserData>(db.Table<UserData>());
+            return items;
         }
 
-        public UserData GetTaskById(int id)
+        public UserData GetRecordById(int id)
         {
             var db = new SQLiteConnection(_dbPath);
 
@@ -53,20 +64,17 @@ namespace Bodia_benchmark_xamarin.Sources.DBHelpers
             return item;
         }
 
-        public bool UpdateRecord(int id, UserData task)
+        public void UpdateRecord(UserData task)
         {
             var db = new SQLiteConnection(_dbPath);
-
             db.Update(task);
-            return true;
         }
 
-        public bool RemoveUserById(int id)
+        public void RemoveUserById(int id)
         {
             var db = new SQLiteConnection(_dbPath);
             var item = db.Get<UserData>(id);
             db.Delete(item);
-            return true;
         }
     }
 }

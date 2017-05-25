@@ -20,5 +20,16 @@ namespace Bodia_benchmark_xamarin.Sources.DbModels
         {
             return $"[Person: ID={ID}, FirstName={Name}, LastName={Surname}]";
         }
+
+        public UserData(string name, string surname, DateTime birthDate)
+        {
+            Name = name;
+            Surname = surname;
+            BirthDate = birthDate;
+        }
+        public UserData()
+        {
+
+        }
     }
 }
