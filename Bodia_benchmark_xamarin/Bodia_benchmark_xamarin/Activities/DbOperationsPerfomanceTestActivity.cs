@@ -156,7 +156,7 @@ namespace Bodia_benchmark_xamarin.Sources
             switch (numberOfTest)
             {
                 case 1:
-                    firstResultText.Text= inseringTime + ", " + updatingTime + ", " + deletingTime;
+                    firstResultText.Text = inseringTime + ", " + updatingTime + ", " + deletingTime;
                     break;
                 case 2:
                     secondResultText.Text = inseringTime + ", " + updatingTime + ", " + deletingTime;

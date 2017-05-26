@@ -16,6 +16,12 @@ namespace Bodia_benchmark_xamarin.Sources
         TextView averageTimeResultText;
         Button btnRunCompressTest;
 
+        double compressTime;
+        double unCompressTime;
+
+        double averageCompressTime;
+        double averageUnCompressTime;
+
         private int testNumber = 0;
 
         protected override void OnCreate(Bundle bundle)
@@ -60,18 +66,19 @@ namespace Bodia_benchmark_xamarin.Sources
             }
             if (testNumber < 3)
             {
-                double elapsedTime = EraseWhile();
+                EraseWhile();
                 testNumber++;
-                FillResults(testNumber, elapsedTime);
+                FillResults(testNumber);
+                averageCompressTime = averageCompressTime + compressTime;
+                averageUnCompressTime = averageUnCompressTime + unCompressTime;
             }
             if (testNumber == 3)
             {
-                double average = (Convert.ToDouble(firstResultText.Text) +
-                        Convert.ToDouble(secondResultText.Text) +
-                        Convert.ToDouble(thirdResultText.Text)) / 3;
-                averageTimeResultText.Text = average.ToString();
+                averageTimeResultText.Text = (averageCompressTime / 3) + ", " + (averageUnCompressTime / 3);
                 btnRunCompressTest.Text = Resources.GetString(Resource.String.start_new_tests_series_with_while_btn_label);
                 testNumber++;
+                averageCompressTime = 0;
+                averageUnCompressTime = 0;
                 return;
             }
             if (btnRunCompressTest.Text == Resources.GetString(Resource.String.start_new_tests_series_with_while_btn_label))
@@ -82,11 +89,19 @@ namespace Bodia_benchmark_xamarin.Sources
             }
         }
 
-        private double EraseWhile()
+        private double CompressFiles()
         {
             long tStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
             ZipFile.CreateFromDirectory(Globals.PathToFilesForCompressFolder, Globals.PathToCompressedZipFile);
+            long tEnd = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            long tDelta = tEnd - tStart;
+            File.Delete(Globals.PathToCompressedZipFile);
+            return tDelta / 1000.0;
+        }
+
+        private double UnCompressFiles()
+        {
+            long tStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             try
             {
                 ZipFile.ExtractToDirectory(Globals.PathToCompressedZipFile, Globals.PathToUncompressFilesFolder);
@@ -101,18 +116,24 @@ namespace Bodia_benchmark_xamarin.Sources
             return tDelta / 1000.0;
         }
 
-        private void FillResults(int numberOfTest, double time)
+        private void EraseWhile()
+        {
+            compressTime = CompressFiles();
+            unCompressTime = UnCompressFiles();
+        }
+
+        private void FillResults(int numberOfTest)
         {
             switch (numberOfTest)
             {
                 case 1:
-                    firstResultText.Text = Convert.ToString(time);
+                    firstResultText.Text = Convert.ToString(compressTime) +"/"+ Convert.ToString(unCompressTime);
                     break;
                 case 2:
-                    secondResultText.Text = Convert.ToString(time);
+                    secondResultText.Text = Convert.ToString(compressTime) + "/" + Convert.ToString(unCompressTime);
                     break;
                 case 3:
-                    thirdResultText.Text = Convert.ToString(time);
+                    thirdResultText.Text = Convert.ToString(compressTime) + "/" + Convert.ToString(unCompressTime);
                     break;
             }
         }

@@ -19,8 +19,11 @@ namespace Bodia_benchmark_xamarin.Sources.DBHelpers
         public void CreateTable()
         {
             var db = new SQLiteConnection(_dbPath);
-            db.DeleteAll<UserData>();
-            db.DropTable<UserData>();
+            var info = db.GetTableInfo("UserData");
+            if (info.Count == 0)
+            {
+                db.DropTable<UserData>();
+            }
             db.CreateTable<UserData>();
         }
 
