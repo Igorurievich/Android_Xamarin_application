@@ -44,6 +44,7 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <AndroidSupportedAbis />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\WhilePerfomanceTestActivity.cs" />
@@ -64,6 +66,10 @@
     <Compile Include="Activities\DbOperationsPerfomanceTestActivity.cs" />
     <Compile Include="Activities\DynamicListViewPerfomanceTestActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Sources\DBHelpers\DbRespository.cs" />
+    <Compile Include="Sources\DbModels\UserData.cs" />
+    <Compile Include="Sources\SQLite\SQLite.cs" />
+    <Compile Include="Sources\SQLite\SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\FilesForCompress\file0" />
@@ -1105,12 +1111,6 @@
     <AndroidResource Include="Resources\values\styles.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{c030ef71-f800-4627-941e-afa9b96cd68b}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\toolbar.xml">
