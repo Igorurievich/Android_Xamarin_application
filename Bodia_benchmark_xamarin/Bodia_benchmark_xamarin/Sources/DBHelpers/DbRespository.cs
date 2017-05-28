@@ -11,11 +11,6 @@ namespace Bodia_benchmark_xamarin.Sources.DBHelpers
         private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal),
             Globals.UsersDatabaseName);
 
-        public void CreateDb()
-        {
-            var sqLiteConnection = new SQLiteConnection(_dbPath);
-        }
-
         public void CreateTable()
         {
             var db = new SQLiteConnection(_dbPath);

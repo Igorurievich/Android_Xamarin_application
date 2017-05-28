@@ -38,8 +38,6 @@ namespace Bodia_benchmark_xamarin.Sources
             SetContentView(Resource.Layout.ActivityDbOperationsPerfomanceTest);
 
             dbRepository = new DbRespository();
-
-            dbRepository.CreateDb();
             dbRepository.CreateTable();
 
             inputedRecordsCount = (EditText)FindViewById(Resource.Id.input_records_count);
