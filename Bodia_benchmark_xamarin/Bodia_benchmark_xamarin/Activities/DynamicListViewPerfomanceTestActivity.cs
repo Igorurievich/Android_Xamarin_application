@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Bodia_benchmark_xamarin.Sources
 {
     [Activity]
-    public class DynamicListViewPerfomanceTestActivity : Activity
+    public class DynamicListViewPerfomanceTestActivity : ListActivity
     {
         EditText editTextWhileCount;
         TextView firstResultText;
@@ -26,10 +26,10 @@ namespace Bodia_benchmark_xamarin.Sources
 
             SetContentView(Resource.Layout.ActivityDynamicListViewPerfomanceTest);
 
-            List<string> data = new List<string>();
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, data);
-            
-            testListView = (ListView)FindViewById(Resource.Id.test_List_View);
+            var items = new List<string>();
+            var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, items);
+            ListAdapter = adapter;  
+
             editTextWhileCount = (EditText)FindViewById(Resource.Id.input_listview_items_count);
             firstResultText = (TextView)FindViewById(Resource.Id.first_listview_test_result);
             secondResultText = (TextView)FindViewById(Resource.Id.second_listview_test_result);
@@ -38,8 +38,6 @@ namespace Bodia_benchmark_xamarin.Sources
 
             btnRunListViewTest = (Button)FindViewById(Resource.Id.addItem);
             btnRunListViewTest.Click += BtnRunListViewTest_Click;
-
-            testListView.Adapter = adapter;
         }
 
         private void BtnRunListViewTest_Click(object sender, System.EventArgs e)
@@ -78,7 +76,8 @@ namespace Bodia_benchmark_xamarin.Sources
         private double EraseDynamiclyItemsInserting(long count)
         {
             long tStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            ArrayAdapter adapter = (ArrayAdapter)testListView.Adapter;
+
+            ArrayAdapter<string> adapter = (ArrayAdapter<string>)ListAdapter;
             for (long i = 0; i < count; i++)
             {
                 String device = "Item: " + i;
@@ -91,7 +90,7 @@ namespace Bodia_benchmark_xamarin.Sources
         }
         private void ClearListView()
         {
-            ArrayAdapter adapter = (ArrayAdapter)testListView.Adapter;
+            ArrayAdapter<string> adapter = (ArrayAdapter<string>)ListAdapter;
             adapter.Clear();
             adapter.NotifyDataSetChanged();
         }

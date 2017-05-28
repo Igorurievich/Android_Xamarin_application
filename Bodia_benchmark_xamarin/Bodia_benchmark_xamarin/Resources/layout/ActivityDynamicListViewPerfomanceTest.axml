@@ -106,7 +106,7 @@
         </LinearLayout>
     </LinearLayout>
     <ListView
-        android:id="@+id/test_List_View"
+        android:id="@id/android:list" 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawSelectorOnTop="false"
