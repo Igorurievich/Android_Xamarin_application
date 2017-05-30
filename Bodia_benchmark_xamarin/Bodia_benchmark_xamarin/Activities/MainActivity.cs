@@ -43,6 +43,10 @@ namespace Bodia_benchmark_xamarin.Sources
             {
                 StartActivity(typeof(CompressFilesPerfomanceTestActivity));
             }
+            if (selectedTest == Resources.GetString(Resource.String.test_name_fps_measuring))
+            {
+                StartActivity(typeof(FpsCameraPeerfomanceTestActivity));
+            }
         }
 
         private void InitListOfTests()
@@ -52,7 +56,8 @@ namespace Bodia_benchmark_xamarin.Sources
                 Resources.GetString(Resource.String.test_name_ui_loading),
                 Resources.GetString(Resource.String.test_name_database_operations),
                 Resources.GetString(Resource.String.test_name_start_big_while),
-                Resources.GetString(Resource.String.test_name_compress_files)
+                Resources.GetString(Resource.String.test_name_compress_files),
+                Resources.GetString(Resource.String.test_name_fps_measuring)
             };
 
             ArrayAdapter adapter = new ArrayAdapter(this,

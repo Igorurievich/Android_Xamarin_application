@@ -60,14 +60,14 @@ namespace Bodia_benchmark_xamarin
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070017
-			public const int ListOfTestsSpinner = 2131165207;
+			// aapt resource value: 0x7f07001a
+			public const int ListOfTestsSpinner = 2131165210;
 			
 			// aapt resource value: 0x7f070015
 			public const int addItem = 2131165205;
 			
-			// aapt resource value: 0x7f07001d
-			public const int arithmetic_main = 2131165213;
+			// aapt resource value: 0x7f070020
+			public const int arithmetic_main = 2131165216;
 			
 			// aapt resource value: 0x7f070008
 			public const int arithmetic_main_compressing_test = 2131165192;
@@ -81,8 +81,8 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f070014
 			public const int arithmetic_main_listview_test = 2131165204;
 			
-			// aapt resource value: 0x7f07001f
-			public const int clear_all_files = 2131165215;
+			// aapt resource value: 0x7f070022
+			public const int clear_all_files = 2131165218;
 			
 			// aapt resource value: 0x7f070002
 			public const int first_compressing_test_result = 2131165186;
@@ -93,11 +93,17 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f070011
 			public const int first_listview_test_result = 2131165201;
 			
-			// aapt resource value: 0x7f07001a
-			public const int first_while_test_result = 2131165210;
+			// aapt resource value: 0x7f07001d
+			public const int first_while_test_result = 2131165213;
 			
 			// aapt resource value: 0x7f070001
 			public const int first_while_test_result_label = 2131165185;
+			
+			// aapt resource value: 0x7f070016
+			public const int fps_label = 2131165206;
+			
+			// aapt resource value: 0x7f070017
+			public const int fps_value = 2131165207;
 			
 			// aapt resource value: 0x7f070010
 			public const int input_listview_items_count = 2131165200;
@@ -105,8 +111,8 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f07000a
 			public const int input_records_count = 2131165194;
 			
-			// aapt resource value: 0x7f070019
-			public const int input_while_count = 2131165209;
+			// aapt resource value: 0x7f07001c
+			public const int input_while_count = 2131165212;
 			
 			// aapt resource value: 0x7f070009
 			public const int run_compress_test_button = 2131165193;
@@ -114,11 +120,11 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f07000f
 			public const int run_db_test_button = 2131165199;
 			
-			// aapt resource value: 0x7f070018
-			public const int run_test_button = 2131165208;
+			// aapt resource value: 0x7f07001b
+			public const int run_test_button = 2131165211;
 			
-			// aapt resource value: 0x7f07001e
-			public const int run_while_test_btn = 2131165214;
+			// aapt resource value: 0x7f070021
+			public const int run_while_test_btn = 2131165217;
 			
 			// aapt resource value: 0x7f070004
 			public const int second_compressing_test_result = 2131165188;
@@ -129,11 +135,14 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f070012
 			public const int second_listview_test_result = 2131165202;
 			
-			// aapt resource value: 0x7f07001b
-			public const int second_while_test_result = 2131165211;
+			// aapt resource value: 0x7f07001e
+			public const int second_while_test_result = 2131165214;
 			
 			// aapt resource value: 0x7f070003
 			public const int second_while_test_result_label = 2131165187;
+			
+			// aapt resource value: 0x7f070018
+			public const int start_fps_test = 2131165208;
 			
 			// aapt resource value: 0x7f070006
 			public const int third_compressing_test_result = 2131165190;
@@ -144,14 +153,14 @@ namespace Bodia_benchmark_xamarin
 			// aapt resource value: 0x7f070013
 			public const int third_listview_test_result = 2131165203;
 			
-			// aapt resource value: 0x7f07001c
-			public const int third_while_test_result = 2131165212;
+			// aapt resource value: 0x7f07001f
+			public const int third_while_test_result = 2131165215;
 			
 			// aapt resource value: 0x7f070005
 			public const int third_while_test_result_label = 2131165189;
 			
-			// aapt resource value: 0x7f070016
-			public const int tittle_main_activity = 2131165206;
+			// aapt resource value: 0x7f070019
+			public const int tittle_main_activity = 2131165209;
 			
 			// aapt resource value: 0x7f070000
 			public const int toolbar = 2131165184;
@@ -179,13 +188,16 @@ namespace Bodia_benchmark_xamarin
 			public const int ActivityDynamicListViewPerfomanceTest = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ActivityMain = 2130903043;
+			public const int ActivityFpsCameraPerfomanceTest = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ActivityWhilePerfomanceTest = 2130903044;
+			public const int ActivityMain = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int toolbar = 2130903045;
+			public const int ActivityWhilePerfomanceTest = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int toolbar = 2130903046;
 			
 			static Layout()
 			{
@@ -284,6 +296,9 @@ namespace Bodia_benchmark_xamarin
 			
 			// aapt resource value: 0x7f040004
 			public const int test_name_database_operations = 2130968580;
+			
+			// aapt resource value: 0x7f04001c
+			public const int test_name_fps_measuring = 2130968604;
 			
 			// aapt resource value: 0x7f040005
 			public const int test_name_start_big_while = 2130968581;
