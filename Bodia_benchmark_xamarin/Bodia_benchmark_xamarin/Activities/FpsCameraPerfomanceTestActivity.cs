@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.Media;
 using Android.OS;
@@ -6,9 +7,8 @@ using Android.Provider;
 using Android.Views;
 using Android.Widget;
 using Java.IO;
-using System;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Activity]
     public class FpsCameraPeerfomanceTestActivity : Activity

@@ -1,11 +1,11 @@
-﻿using Android.OS;
-using Android.Views;
-using Android.Widget;
-using System;
+﻿using System;
 using System.IO;
 using System.IO.Compression;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Android.App.Activity]
     public class CompressFilesPerfomanceTestActivity : Android.App.Activity
@@ -91,28 +91,27 @@ namespace Bodia_benchmark_xamarin.Sources
 
         private double CompressFiles()
         {
+            if (File.Exists(Globals.PathToCompressedZipFile))
+            {
+                File.Delete(Globals.PathToCompressedZipFile);
+            }
             long tStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             ZipFile.CreateFromDirectory(Globals.PathToFilesForCompressFolder, Globals.PathToCompressedZipFile);
             long tEnd = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             long tDelta = tEnd - tStart;
-            File.Delete(Globals.PathToCompressedZipFile);
             return tDelta / 1000.0;
         }
 
         private double UnCompressFiles()
         {
+            if (Directory.Exists(Globals.PathToUncompressFilesFolder))
+            {
+                Directory.Delete(Globals.PathToUncompressFilesFolder, true);
+            }
             long tStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            try
-            {
-                ZipFile.ExtractToDirectory(Globals.PathToCompressedZipFile, Globals.PathToUncompressFilesFolder);
-            }
-            catch (IOException e)
-            {
-                Console.WriteLine(e.StackTrace);
-            }
+            ZipFile.ExtractToDirectory(Globals.PathToCompressedZipFile, Globals.PathToUncompressFilesFolder);
             long tEnd = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             long tDelta = tEnd - tStart;
-            File.Delete(Globals.PathToCompressedZipFile);
             return tDelta / 1000.0;
         }
 
@@ -148,6 +147,7 @@ namespace Bodia_benchmark_xamarin.Sources
 
         private void CopyFilesForCompressFromAssets()
         {
+
             string[] filesForCompress = Assets.List(Globals.FilesForCompressFolderName);
             if (Directory.Exists(Globals.PathToFilesForCompressFolder))
             {

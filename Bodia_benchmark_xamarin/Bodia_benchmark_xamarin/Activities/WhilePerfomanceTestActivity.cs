@@ -1,10 +1,10 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using System;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Activity]
     public class WhilePerfomanceTestActivity : Activity
@@ -37,7 +37,7 @@ namespace Bodia_benchmark_xamarin.Sources
 
         private void BtnRunWhileTest_Click(object sender, System.EventArgs e)
         {
-            if (editTextWhileCount.Text == null || string.IsNullOrEmpty(editTextWhileCount.Text))
+            if (string.IsNullOrEmpty(editTextWhileCount.Text))
             {
                 Toast.MakeText(this, Resource.String.message_inser_valid_count, ToastLength.Long).Show();
                 return;

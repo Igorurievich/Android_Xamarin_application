@@ -1,11 +1,11 @@
-﻿using Android.App;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using System.Collections.Generic;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Activity]
     public class DynamicListViewPerfomanceTestActivity : ListActivity

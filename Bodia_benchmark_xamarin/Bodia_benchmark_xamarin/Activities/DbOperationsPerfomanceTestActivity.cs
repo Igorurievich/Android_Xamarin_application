@@ -1,13 +1,13 @@
-﻿using Android.App;
+﻿using System;
+using System.Collections.Generic;
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Bodia_benchmark_xamarin.Sources.DBHelpers;
 using Bodia_benchmark_xamarin.Sources.DbModels;
-using System;
-using System.Collections.Generic;
+using Bodia_benchmark_xamarin.Sources.DBHelpers;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Activity]
     public class DbOperationsPerfomanceTestActivity : Activity

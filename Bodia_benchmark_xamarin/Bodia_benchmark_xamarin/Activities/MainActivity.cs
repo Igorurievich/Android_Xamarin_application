@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using Bodia_benchmark_xamarin.Sources;
 
-namespace Bodia_benchmark_xamarin.Sources
+namespace Bodia_benchmark_xamarin.Activities
 {
     [Activity(Label = "Bodia Xamarin benchmark", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
